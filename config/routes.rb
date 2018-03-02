@@ -21,5 +21,6 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :jwts
+    resources :quizzes
   end
 end

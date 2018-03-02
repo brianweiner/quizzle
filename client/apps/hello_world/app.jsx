@@ -11,6 +11,7 @@ import jwt from 'atomic-fuel/libs/loaders/jwt';
 
 import configureStore from './store/configure_store';
 import routes from './routes';
+import {loadQuiz} from './actions/quizActions';
 
 import './styles/styles';
 
@@ -48,6 +49,8 @@ const store = configureStore({ settings, jwt: window.DEFAULT_JWT });
 if (window.DEFAULT_JWT) { // Setup JWT refresh
   jwt(store.dispatch, settings.userId);
 }
+
+store.dispatch(loadQuiz());
 
 ReactDOM.render(
   <Root store={store} />,
